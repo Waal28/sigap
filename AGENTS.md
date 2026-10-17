@@ -11,6 +11,8 @@ Welcome to the **SIGAP** project. This file serves as the single source of truth
 - **Static Analysis**: PHPStan Level 5 (`phpstan.neon`)
 - **Testing**: PHPUnit 11 (`phpunit.xml`)
 - **Server**: Built-in CLI (`php spark serve`)
+- **Feature Specs & Schema Dictionary**: [docs/FEATURES.md](docs/FEATURES.md)
+- **Domain Bounded Context & Architecture Map**: [docs/CONTEXT_MAP.md](docs/CONTEXT_MAP.md)
 
 ---
 
@@ -122,3 +124,15 @@ public/              # Web root (assets: css, js, images)
 tests/               # PHPUnit test cases
 writable/            # Cache, logs, uploads, session storage
 ```
+
+---
+
+## 6. Documentation & Path Portability Rules (Mandatory)
+To ensure this repository is 100% portable across different devices, operating systems (Linux, Windows, macOS), and user directories:
+1. **Always Use Relative Paths in Documentation**:
+   - Every file link or path reference in markdown documents (`README.md`, `AGENTS.md`, and files in `docs/`) MUST use relative paths (e.g., `docs/FEATURES.md`, `docs/CONTEXT_MAP.md`, `app/Controllers/AuthController.php`, `./CONTEXT_MAP.md`, or `../writable/uploads/lampiran/`).
+2. **Never Use Absolute Machine Paths**:
+   - **NEVER** use host-specific absolute paths (such as `/home/username/...`, `C:\Users\...`) or `file:///` URI schemes in markdown documentation, codebase comments, or configuration templates.
+3. **Cross-Platform Compatibility**:
+   - Use forward slashes (`/`) for directory separators in all documentation links and references.
+

@@ -13,6 +13,8 @@
 - **Analisis Statis**: PHPStan Level 5 (`phpstan.neon`)
 - **Unit Testing**: PHPUnit 11 (`phpunit.xml`)
 - **Pola Arsitektur**: Entity Pattern (Model dengan strongly-typed Entities, Slim Controllers)
+- **Spesifikasi Fitur & Kamus Data**: [docs/FEATURES.md](docs/FEATURES.md)
+- **Domain Context Map & Navigasi AI**: [docs/CONTEXT_MAP.md](docs/CONTEXT_MAP.md)
 
 ---
 

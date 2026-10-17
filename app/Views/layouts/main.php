@@ -120,14 +120,14 @@
 
                     <!-- Tombol Keluar (All Roles) -->
                     <div class="pt-2">
-                        <a href="<?= base_url('logout') ?>" 
-                           onclick="return confirm('Apakah Anda yakin ingin keluar dari sistem SIGAP?')"
-                           class="flex items-center gap-3 text-sm font-medium transition py-1.5 px-3 rounded-xl text-gray-100 hover:text-white hover:bg-[#1E4E38]/60">
+                        <button type="button" 
+                                onclick="openLogoutModal()"
+                                class="w-full flex items-center gap-3 text-sm font-medium transition py-1.5 px-3 rounded-xl text-gray-100 hover:text-white hover:bg-[#1E4E38]/60 text-left">
                             <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                             </svg>
                             <span>Keluar</span>
-                        </a>
+                        </button>
                     </div>
                 </nav>
             </div>
@@ -193,6 +193,70 @@
         </div>
     </main>
 </div>
+
+<!-- ========================================== -->
+<!-- MODAL DIALOG KONFIRMASI LOGOUT             -->
+<!-- ========================================== -->
+<div id="logoutModal" 
+     class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[28px] max-w-sm w-full p-6 text-center shadow-2xl border border-gray-100 transform transition-all">
+        <!-- Icon Keluar (Circle Rose) -->
+        <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 shadow-inner">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+            </svg>
+        </div>
+
+        <h3 class="text-lg font-bold text-gray-900 mb-1.5">Konfirmasi Keluar</h3>
+        <p class="text-xs text-gray-500 mb-6 leading-relaxed">
+            Apakah Anda yakin ingin keluar dari sistem <strong class="text-gray-700">SIGAP</strong>? Anda harus login kembali untuk mengakses data pengajuan.
+        </p>
+
+        <!-- Tombol Aksi -->
+        <div class="flex items-center justify-center gap-3">
+            <button type="button" 
+                    onclick="closeLogoutModal()"
+                    class="flex-1 py-2.5 px-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition">
+                Batal
+            </button>
+            <a href="<?= base_url('logout') ?>" 
+               class="flex-1 py-2.5 px-4 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition shadow-md shadow-rose-600/20 text-center">
+                Ya, Keluar
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openLogoutModal() {
+        const modal = document.getElementById('logoutModal');
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+    }
+
+    function closeLogoutModal() {
+        const modal = document.getElementById('logoutModal');
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+    }
+
+    // Tutup jika tekan tombol ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLogoutModal();
+        }
+    });
+
+    // Tutup jika klik area latar gelap di luar modal
+    document.addEventListener('click', function(event) {
+        const modal = document.getElementById('logoutModal');
+        if (modal && event.target === modal) {
+            closeLogoutModal();
+        }
+    });
+</script>
 
 </body>
 </html>
