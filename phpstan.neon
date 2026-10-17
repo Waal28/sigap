@@ -1,0 +1,11 @@
+parameters:
+    level: 5
+    paths:
+        - app
+    excludePaths:
+        - app/Views/*
+    bootstrapFiles:
+        - system/Test/bootstrap.php
+    ignoreErrors:
+        - '#Strict comparison using (===|!==) between .* and .* will always evaluate to (true|false)#'
+        - '#Left side of && is always true#'

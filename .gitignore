@@ -1,0 +1,36 @@
+# Environment and secrets
+.env
+
+# Composer dependencies
+/vendor/
+composer.lock
+
+# CodeIgniter writable folder (keep directories, ignore runtime data)
+/writable/cache/*
+!/writable/cache/index.html
+!/writable/cache/.htaccess
+
+/writable/debugbar/*
+
+/writable/logs/*
+!/writable/logs/index.html
+!/writable/logs/.htaccess
+
+/writable/session/*
+!/writable/session/index.html
+!/writable/session/.htaccess
+
+/writable/uploads/*
+!/writable/uploads/index.html
+!/writable/uploads/.htaccess
+
+# Testing and build artifacts
+/build/
+.phpunit.result.cache
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
